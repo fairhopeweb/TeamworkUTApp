@@ -59,7 +59,7 @@ export default function Home() {
           <p>Star on GitHub</p>
         </a>
         <h1 className="sm:text-6xl text-4xl max-w-[708px] font-bold text-slate-900">
-          Generate a list of your Teamwork's unassigned tasks.
+          Generate a list of your Teamwork&apos;s unassigned tasks.
         </h1>
         <p className="text-slate-500 mt-5">
           And send them straight to your Slack channels!

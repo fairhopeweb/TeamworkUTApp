@@ -15,21 +15,21 @@ class MyDocument extends Document {
             property="og:description"
             content="Generate your a list of your Teamwork unassigned tasks."
           />
-          <meta property="og:title" content="Teamwork Unassigned tasks list generator." />
+          <meta
+            property="og:title"
+            content="Teamwork Unassigned tasks list generator."
+          />
           <meta name="twitter:card" content="summary_large_image" />
-          <meta name="twitter:title" content="Teamwork Unassigned tasks list generator." />
+          <meta
+            name="twitter:title"
+            content="Teamwork Unassigned tasks list generator."
+          />
           <meta
             name="twitter:description"
             content="Generate your a list of your Teamwork unassigned tasks."
           />
-          <meta
-            property="og:image"
-            content=""
-          />
-          <meta
-            name="twitter:image"
-            content=""
-          />
+          <meta property="og:image" content="" />
+          <meta name="twitter:image" content="" />
         </Head>
         <body>
           <Main />
