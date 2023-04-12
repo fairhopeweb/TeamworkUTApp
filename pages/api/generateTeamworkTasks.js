@@ -6,10 +6,11 @@ const slackWebhook = new IncomingWebhook(slackWebhookUrl);
 
 // Set up Teamwork API credentials
 const teamworkApiKey = process.env.TEAMWORK_API_KEY;
+const teamworkCompany = process.env.TEAMWORK_COMPANY;
 
 // Make API call to Teamwork API to retrieve list of unassigned tasks
 async function getUnassignedTasks() {
-  const response = await fetch("https://jaladesign.teamwork.com/tasks.json", {
+  const response = await fetch(`${teamworkCompany}/tasks.json`, {
     method: "GET",
     headers: {
       Authorization: `Basic ${btoa(`${teamworkApiKey}:`)}`,
@@ -32,7 +33,7 @@ async function getUnassignedTasks() {
 // Make API call to Teamwork API to retrieve project name for a task
 async function getProjectName(taskId) {
   const response = await fetch(
-    `https://jaladesign.teamwork.com/tasks/${taskId}.json`,
+    `${teamworkCompany}/tasks/${taskId}.json`,
     {
       method: "GET",
       headers: {
@@ -77,9 +78,10 @@ async function sendUnassignedTasksToSlack() {
 
 function formatTasks(tasks) {
   // Format message
-  let message = "List of unassigned tasks:\n\n";
-  tasks.forEach((task) => {
-    message += `• Project: ${task.projectName} - ${task.content} \n`;
+  let message = `*List of unassigned tasks:*\n\n`;
+  tasks.forEach((task, index) => {
+    message += `${index + 1}. *Project:* ${task.projectName}\n *Tasks:* ${task.content
+      } \n`;
   });
   return message;
 }
